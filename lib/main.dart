@@ -25,6 +25,7 @@ class _HomeWidgetState extends State<HomeWidget>{
         child: Text(color.toString(), style : TextStyle(fontSize: 40,color: Colors.white)),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.cyan,
         onPressed: (){
           setState(() {
            color = !color; 
