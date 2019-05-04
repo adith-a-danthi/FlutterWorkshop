@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Screens/FirstScreen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
@@ -6,7 +7,7 @@ void main() {
   runApp(MaterialApp(
     title: "My New App",
     theme: ThemeData(primarySwatch: Colors.red, brightness: Brightness.light),
-    home: HomeWidget()
+    home: FirstScreen()
   ));
 
 }
