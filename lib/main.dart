@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 void main() {
   runApp(MaterialApp(
@@ -17,6 +19,30 @@ class HomeWidget extends StatefulWidget {
 class _HomeWidgetState extends State<HomeWidget>{
   bool color = true;
   @override
+  void initState(){
+    super.initState();
+    print("Working");
+    fetchData();
+  }
+
+  fetchData()async{
+    var url = "http://dummy.restapiexample.com/api/v1/employees";
+    print("before");
+    var response = await http.get(url);
+    print("response ${response}");
+    print("after");
+
+    if(response.statusCode == 200){
+      var jsonResponse = convert.jsonDecode(response.body);
+      print(jsonResponse);
+    } else {
+      print("Request failed with status : ${response.statusCode}.");
+    }
+
+  }
+
+
+
   Widget build(BuildContext context){
     return Scaffold(
       body: Container(
