@@ -22,7 +22,7 @@ class _HomeWidgetState extends State<HomeWidget>{
       body: Container(
         alignment: Alignment.center,
         color: color ? Colors.blue : Colors.black,
-        child: Text(color.toString(), style : TextStyle(fontSize: 40,)),
+        child: Text(color.toString(), style : TextStyle(fontSize: 40,color: Colors.white)),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
