@@ -8,64 +8,92 @@ void main() {
   ));
 
 }
-
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(),
-      //backgroundColor: Colors.cyan,
-      appBar: AppBar(
-        title: Text("My Header"),
-      ),
-        body: ListView.builder(
-          itemCount: 50,
-          itemBuilder: (context,index){
-            return Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: Text("$index"),
-                ),
-                trailing: Text("2:10"),
-                title: Text("User Name"),
-                subtitle: Text("Subtitle"),
-              ),);
-            
-            // return Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     Row(
-            //       children:     <Widget>[                
-            //         CircleAvatar(    
-            //           backgroundColor: Colors.blue,    
-            //           child: Text("$index"),    
-            //         ),
-            //         Column(
-            //           children: <Widget>[
-            //             Padding(
-            //               padding: const EdgeInsets.all(top:8.0,left:
-            //                 Text("User Name"),
-            //               )
-                           
+  _HomeWidgetState createState() => _HomeWidgetState();
+  
+}
 
-            //             ),
-            //             Text("")
-            //           ],
-            //         ),  
-            //       ],
-            //      ),
-            //      Padding(
-            //        padding: const EdgeInsets.all(18.0),
-            //        child: Text("2:10"),
-            //      )
-            //     ],
-            //   );
-            },
-        ),
-        
+class _HomeWidgetState extends State<HomeWidget>{
+  bool color = true;
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        color: color ? Colors.blue : Colors.black,
+        child: Text(color.toString(), style : TextStyle(fontSize: 40,)),
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: Icon(Icons.add),),
+        onPressed: (){
+          setState(() {
+           color = !color; 
+          });
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
+
+
+// class HomeWidget extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       drawer: Drawer(),
+//       //backgroundColor: Colors.cyan,
+//       appBar: AppBar(
+//         title: Text("My Header"),
+//       ),
+//         body: ListView.builder(
+//           itemCount: 50,
+//           itemBuilder: (context,index){
+//             return Card(
+//               child: ListTile(
+//                 leading: CircleAvatar(
+//                   backgroundImage: // Container(decoration: BoxDecoration(image: DecorationImage(image:)),)// Image.asset("assets.pic1.jpg",),
+//                 ),
+//                 trailing: Text("2:10"),
+//                 title: Text("User Name"),
+//                 subtitle: Text("Subtitle"),
+//               ),);
+            
+//             // return Row(
+//             //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             //   children: [
+//             //     Row(
+//             //       children:     <Widget>[                
+//             //         CircleAvatar(    
+//             //           backgroundColor: Colors.blue,    
+//             //           child: Text("$index"),    
+//             //         ),
+//             //         Column(
+//             //           children: <Widget>[
+//             //             Padding(
+//             //               padding: const EdgeInsets.all(top:8.0,left:
+//             //                 Text("User Name"),
+//             //               )
+                           
+
+//             //             ),
+//             //             Text("")
+//             //           ],
+//             //         ),  
+//             //       ],
+//             //      ),
+//             //      Padding(
+//             //        padding: const EdgeInsets.all(18.0),
+//             //        child: Text("2:10"),
+//             //      )
+//             //     ],
+//             //   );
+//             },
+//         ),
+        
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: (){},
+//         child: Icon(Icons.add),),
+//     );
+//   }
+// }
